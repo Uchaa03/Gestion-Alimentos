@@ -26,15 +26,4 @@ public class Alimento {
     @OneToMany(mappedBy = "alimento", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JsonManagedReference
     private List<Existencia> existencias; //Propietario de la relación
-
-    //Métodos para comprobar si un elemento es igual para incrementar su cantidad
-    @Override
-    public boolean equals(Object obj){
-        if (this == obj) return true;
-        if (!(obj instanceof Alimento alimento)) return false;
-        return Objects.equals(nombre, alimento.nombre) &&
-                Objects.equals(tipo, alimento.tipo) &&
-                Objects.equals(estado, alimento.estado) &&
-                Objects.equals(fecha_caducidad, alimento.fecha_caducidad);
-    }
 }
